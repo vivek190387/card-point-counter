@@ -898,3 +898,33 @@ button[onclick="newGame()"]:hover {
     }
 
 }
+/* Text visibility fix */
+body {
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+}
+
+p, label, span {
+    color: #e5e7eb;
+}
+
+.player-name,
+.player-score,
+.leaderboard,
+.section-title {
+    color: #ffffff;
+}
+
+input,
+select,
+textarea {
+    color: #111827;
+    background-color: #ffffff;
+}
+
+button {
+    color: #ffffff;
+}
