@@ -1,9 +1,11 @@
-```css
 /* =========================================================
-   CARD POINT COUNTER - MODERN UI
+   CARD POINT COUNTER
+   Modern Card Game UI
    ========================================================= */
 
-/* ---------- GLOBAL ---------- */
+/* =========================================================
+   GLOBAL
+   ========================================================= */
 
 * {
     box-sizing: border-box;
@@ -18,21 +20,22 @@ html {
 body {
     min-height: 100vh;
     font-family: "Segoe UI", Arial, sans-serif;
-    background: linear-gradient(135deg, #f8fafc, #eef4ff);
+    background: linear-gradient(135deg, #eef2ff 0%, #f8fafc 100%);
     color: #172033;
+    padding: 30px;
     line-height: 1.6;
 }
 
-/* ---------- MAIN CONTAINER ---------- */
-
+/* Main page width */
 .container {
-    width: 92%;
+    width: 100%;
     max-width: 1100px;
     margin: 0 auto;
-    padding: 40px 0;
 }
 
-/* ---------- HEADINGS ---------- */
+/* =========================================================
+   HEADINGS
+   ========================================================= */
 
 h1,
 h2,
@@ -41,178 +44,170 @@ h4,
 h5,
 h6 {
     color: #172033 !important;
-    font-weight: 750;
-    line-height: 1.2;
+    font-weight: 700;
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
     margin-bottom: 12px;
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 12px;
+    font-size: 30px;
+    margin-bottom: 15px;
 }
 
 h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 12px;
 }
 
 p {
-    color: #64748b !important;
-    margin-bottom: 15px;
+    color: #475569 !important;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 18px;
 }
 
 /* =========================================================
-   HOME / HERO
+   HEADER
    ========================================================= */
 
-.hero {
+header {
     text-align: center;
-    padding: 55px 25px 35px;
+    margin-bottom: 35px;
 }
 
-.hero h1 {
-    font-size: clamp(2.3rem, 6vw, 4rem);
+header h1 {
     color: #172033 !important;
-    font-weight: 800;
-    letter-spacing: -1.5px;
 }
 
-.hero h1 span {
-    color: #5b4ce2 !important;
-}
-
-.hero p {
-    font-size: 1.15rem;
-    color: #64748b !important;
-    margin-top: 12px;
-}
-
-/* ---------- LOGO / ICON ---------- */
-
-.logo {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 65px;
-    height: 65px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #eef2ff, #ddd6fe);
-    font-size: 2rem;
-    margin-bottom: 15px;
-    box-shadow: 0 8px 25px rgba(79, 70, 229, 0.15);
+header p {
+    color: #475569 !important;
 }
 
 /* =========================================================
-   BUTTON AREA
+   EMOJI / ICONS
    ========================================================= */
 
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-    margin-top: 30px;
+.emoji,
+.icon {
+    display: inline-block;
+    margin-right: 8px;
 }
 
-/* ---------- ALL BUTTONS ---------- */
+/* =========================================================
+   BUTTONS
+   ========================================================= */
 
 button,
 .btn {
     border: none;
-    outline: none;
-    cursor: pointer;
     border-radius: 12px;
-    padding: 16px 25px;
+    padding: 15px 25px;
     font-family: inherit;
-    font-size: 1.05rem;
+    font-size: 18px;
     font-weight: 700;
+    cursor: pointer;
     transition: all 0.25s ease;
 }
 
-/* ---------- PRIMARY BUTTON ---------- */
-
-button,
-.btn-primary,
-.new-game {
-    color: #ffffff !important;
-    background: linear-gradient(90deg, #4f46e5, #7c3aed);
-    box-shadow: 0 8px 20px rgba(79, 70, 229, 0.22);
-}
-
 button:hover,
-.btn-primary:hover,
-.new-game:hover {
+.btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(79, 70, 229, 0.30);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-/* ---------- DISABLED / CONTINUE ---------- */
+button:active,
+.btn:active {
+    transform: translateY(0);
+}
 
-button:disabled,
-.btn-disabled,
-.no-game {
-    background: #94a3b8 !important;
+/* New Game button */
+
+.btn-primary,
+.new-game-btn,
+button.primary {
+    width: 100%;
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
     color: #ffffff !important;
-    cursor: not-allowed;
-    box-shadow: none;
 }
 
-/* ---------- SUCCESS ---------- */
+/* Continue Game button */
 
 .btn-success,
-.add-player {
-    background: linear-gradient(90deg, #10b981, #16a34a);
+.continue-btn,
+button.success {
+    width: 100%;
+    background: linear-gradient(135deg, #059669, #10b981);
     color: #ffffff !important;
 }
 
-.btn-success:hover,
-.add-player:hover {
-    background: linear-gradient(90deg, #059669, #15803d);
-}
+/* Add Player button */
 
-/* ---------- DANGER ---------- */
-
-.btn-danger {
-    background: #ef4444;
+.btn-add,
+.add-player-btn,
+button.add-player {
+    background: linear-gradient(135deg, #059669, #10b981);
     color: #ffffff !important;
 }
 
-.btn-danger:hover {
-    background: #dc2626;
+/* Add Round button */
+
+.btn-round,
+.add-round-btn,
+button.add-round {
+    width: 100%;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #ffffff !important;
+}
+
+/* General colored buttons */
+
+button[type="submit"] {
+    color: #ffffff !important;
 }
 
 /* =========================================================
-   SECTIONS / CARDS
+   CARDS
    ========================================================= */
 
 .card,
-.game-card,
-.player-card,
-.score-card,
-.form-card,
-.setup-card,
-.result-card {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid #e2e8f0;
+.section,
+.game-card {
+    background: #ffffff;
+    color: #172033 !important;
     border-radius: 18px;
-    padding: 28px;
+    padding: 25px;
     margin-bottom: 25px;
-    box-shadow: 0 10px 35px rgba(15, 23, 42, 0.08);
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
 }
 
-.section-title {
+.card h1,
+.card h2,
+.card h3,
+.card h4,
+.section h1,
+.section h2,
+.section h3,
+.section h4,
+.game-card h1,
+.game-card h2,
+.game-card h3,
+.game-card h4 {
     color: #172033 !important;
-    font-size: 1.8rem;
-    font-weight: 800;
-    margin-bottom: 20px;
 }
 
 /* =========================================================
-   FORM
+   FORMS
    ========================================================= */
+
+form {
+    width: 100%;
+}
 
 .form-group {
     margin-bottom: 22px;
@@ -221,120 +216,52 @@ button:disabled,
 label {
     display: block;
     color: #172033 !important;
-    font-size: 1rem;
+    font-size: 17px;
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-.form-group label {
-    color: #172033 !important;
-}
-
-/* ---------- INPUTS ---------- */
+/* Inputs */
 
 input,
 select,
 textarea {
     width: 100%;
-    padding: 15px 17px;
-    border: 2px solid #dbe3ef;
+    padding: 15px 18px;
+    border: 2px solid #cbd5e1;
     border-radius: 12px;
     background: #ffffff !important;
     color: #172033 !important;
-    font-size: 1rem;
     font-family: inherit;
+    font-size: 17px;
     outline: none;
-    transition: all 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #64748b !important;
+    opacity: 1;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-    border-color: #6366f1;
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
-}
-
-input::placeholder,
-textarea::placeholder {
-    color: #94a3b8 !important;
-    opacity: 1;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
 /* =========================================================
-   ADD PLAYER SECTION
+   PLAYER SECTION
    ========================================================= */
-
-.add-player-section {
-    background: linear-gradient(135deg, #eefbf5, #ecfdf5);
-    border: 1px solid #a7f3d0;
-    border-radius: 20px;
-    padding: 30px;
-    margin-top: 30px;
-}
-
-.add-player-section h2,
-.add-player-section h3 {
-    color: #166534 !important;
-}
-
-.add-player-section p {
-    color: #64748b !important;
-}
-
-/* =========================================================
-   LEADERBOARD
-   ========================================================= */
-
-.leaderboard {
-    margin-top: 30px;
-}
-
-.leaderboard h2,
-.leaderboard h3 {
-    color: #172033 !important;
-}
-
-.leaderboard-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ffffff;
-    color: #172033;
-    padding: 17px 20px;
-    margin-bottom: 12px;
-    border-radius: 14px;
-    border: 1px solid #e2e8f0;
-    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.06);
-}
-
-.leaderboard-item span {
-    color: #172033 !important;
-    font-weight: 650;
-}
-
-.leaderboard-item .score {
-    color: #4f46e5 !important;
-    font-size: 1.3rem;
-    font-weight: 800;
-}
-
-/* =========================================================
-   PLAYER CARDS
-   ========================================================= */
-
-.players {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 20px;
-}
 
 .player {
     background: #ffffff;
+    color: #172033 !important;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 15px;
     border: 1px solid #e2e8f0;
-    border-radius: 18px;
-    padding: 22px;
-    color: #172033;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.07);
+    box-shadow: 0 5px 15px rgba(15, 23, 42, 0.06);
 }
 
 .player h3 {
@@ -342,17 +269,21 @@ textarea::placeholder {
 }
 
 .player p {
-    color: #64748b !important;
+    color: #475569 !important;
 }
+
+/* Player name */
 
 .player-name {
     color: #172033 !important;
-    font-weight: 750;
+    font-weight: 700;
 }
 
+/* Player score */
+
 .player-score {
-    color: #4f46e5 !important;
-    font-size: 2.2rem;
+    color: #172033 !important;
+    font-size: 24px;
     font-weight: 800;
 }
 
@@ -361,25 +292,46 @@ textarea::placeholder {
    ========================================================= */
 
 .score {
-    color: #4f46e5 !important;
-    font-size: 2.5rem;
+    color: #172033 !important;
+    font-size: 32px;
     font-weight: 800;
 }
 
-/* =========================================================
-   SCORE CONTROLS
-   ========================================================= */
-
-.score-controls {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
+.score-positive {
+    color: #15803d !important;
 }
 
-.score-controls button {
-    min-width: 45px;
-    padding: 10px 15px;
+.score-negative {
+    color: #dc2626 !important;
+}
+
+/* =========================================================
+   LEADERBOARD
+   ========================================================= */
+
+.leaderboard {
+    background: #ffffff;
+    color: #172033 !important;
+    border-radius: 18px;
+    padding: 25px;
+    margin-top: 25px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.leaderboard h2,
+.leaderboard h3 {
+    color: #172033 !important;
+}
+
+.leaderboard-item {
+    background: #f8fafc;
+    color: #172033 !important;
+    padding: 18px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
 }
 
 /* =========================================================
@@ -389,34 +341,152 @@ textarea::placeholder {
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
     background: #ffffff;
+    color: #172033 !important;
     border-radius: 15px;
     overflow: hidden;
 }
 
 thead {
-    background: linear-gradient(90deg, #4f46e5, #7c3aed);
+    background: #172033;
 }
 
 th {
+    background: #172033;
+    color: #ffffff !important;
     padding: 15px;
     text-align: left;
-    color: #ffffff !important;
+    font-size: 16px;
 }
 
 td {
-    padding: 15px;
     color: #172033 !important;
+    padding: 15px;
     border-bottom: 1px solid #e2e8f0;
 }
 
-tbody tr:hover {
+tr:nth-child(even) {
     background: #f8fafc;
 }
 
+tr:hover {
+    background: #eef2ff;
+}
+
 /* =========================================================
-   ALERTS
+   ROUND SECTION
+   ========================================================= */
+
+.round {
+    background: #ffffff;
+    color: #172033 !important;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+}
+
+.round h3 {
+    color: #172033 !important;
+}
+
+/* =========================================================
+   WEBSITE PROMOTION SECTION
+   ========================================================= */
+
+.website-section {
+    background: linear-gradient(135deg, #ecfdf5, #dcfce7);
+    border: 1px solid #86efac;
+    border-radius: 20px;
+    padding: 35px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.website-section h2 {
+    color: #166534 !important;
+}
+
+.website-section p {
+    color: #475569 !important;
+}
+
+.website-section button {
+    background: #16a34a;
+    color: #ffffff !important;
+}
+
+/* If your HTML uses another common class */
+
+.promotion,
+.ad-section,
+.contact-section {
+    color: #172033 !important;
+}
+
+.promotion h2,
+.ad-section h2,
+.contact-section h2 {
+    color: #166534 !important;
+}
+
+.promotion p,
+.ad-section p,
+.contact-section p {
+    color: #475569 !important;
+}
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
+a {
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+a:hover {
+    color: #3730a3;
+    text-decoration: underline;
+}
+
+/* =========================================================
+   LISTS
+   ========================================================= */
+
+ul,
+ol {
+    color: #172033 !important;
+}
+
+li {
+    color: #172033 !important;
+    margin-bottom: 6px;
+}
+
+/* =========================================================
+   SPAN / TEXT
+   ========================================================= */
+
+span {
+    color: inherit;
+}
+
+.text-dark {
+    color: #172033 !important;
+}
+
+.text-light {
+    color: #475569 !important;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+
+/* =========================================================
+   ALERT / MESSAGE
    ========================================================= */
 
 .alert {
@@ -426,25 +496,22 @@ tbody tr:hover {
     font-weight: 600;
 }
 
-.alert-success {
+.success-message {
     background: #dcfce7;
     color: #166534 !important;
+    border: 1px solid #86efac;
 }
 
-.alert-error,
-.alert-danger {
+.error-message {
     background: #fee2e2;
     color: #991b1b !important;
+    border: 1px solid #fca5a5;
 }
 
-.alert-warning {
-    background: #fef3c7;
-    color: #92400e !important;
-}
-
-.alert-info {
+.info-message {
     background: #dbeafe;
     color: #1e40af !important;
+    border: 1px solid #93c5fd;
 }
 
 /* =========================================================
@@ -453,19 +520,15 @@ tbody tr:hover {
 
 nav {
     background: #ffffff;
-    border-bottom: 1px solid #e2e8f0;
-    padding: 15px 25px;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    border-radius: 15px;
+    padding: 15px 20px;
+    margin-bottom: 30px;
+    border: 1px solid #e2e8f0;
 }
 
 nav a {
     color: #172033 !important;
-    font-weight: 650;
     margin-right: 20px;
-}
-
-nav a:hover {
-    color: #4f46e5 !important;
 }
 
 /* =========================================================
@@ -474,76 +537,101 @@ nav a:hover {
 
 footer {
     text-align: center;
-    padding: 35px 20px;
     margin-top: 40px;
+    padding: 25px;
 }
 
 footer p {
     color: #64748b !important;
+    font-size: 14px;
 }
 
 /* =========================================================
-   RESPONSIVE
+   HIDDEN ELEMENTS
+   ========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+/* =========================================================
+   RESPONSIVE DESIGN
    ========================================================= */
 
 @media (max-width: 768px) {
 
-    .container {
-        width: 94%;
-        padding: 25px 0;
+    body {
+        padding: 15px;
     }
 
     h1 {
-        font-size: 2.2rem;
+        font-size: 32px;
     }
 
     h2 {
-        font-size: 1.7rem;
+        font-size: 25px;
     }
 
-    .hero {
-        padding: 35px 15px 25px;
+    h3 {
+        font-size: 21px;
     }
 
-    .players {
-        grid-template-columns: 1fr;
-    }
-
-    .game-header {
-        flex-direction: column;
-        align-items: stretch;
+    p {
+        font-size: 16px;
     }
 
     button,
     .btn {
         width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .container {
-        width: 96%;
+        font-size: 16px;
+        padding: 14px 18px;
     }
 
     .card,
-    .game-card,
-    .player-card,
-    .score-card,
-    .form-card,
-    .setup-card,
-    .result-card {
-        padding: 20px;
+    .section,
+    .game-card {
+        padding: 18px;
     }
 
-    input,
-    select,
-    textarea {
-        font-size: 16px;
+    .website-section {
+        padding: 25px 18px;
     }
 
-    .score {
-        font-size: 2rem;
+    table {
+        font-size: 14px;
+    }
+
+    th,
+    td {
+        padding: 10px;
     }
 }
-```
+
+/* =========================================================
+   FINAL TEXT VISIBILITY OVERRIDES
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+    color: #172033 !important;
+}
+
+p {
+    color: #475569 !important;
+}
+
+input,
+textarea,
+select {
+    color: #172033 !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #64748b !important;
+}
