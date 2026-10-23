@@ -1,0 +1,900 @@
+/* ========================================
+   CARD POINT COUNTER
+   MODERN CARD GAME UI
+======================================== */
+
+
+/* ========================================
+   GLOBAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255, 255, 255, 0.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 255, 255, 0.08),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b,
+            #312e81
+        );
+
+    color: #1e293b;
+
+    padding: 30px 15px;
+}
+
+
+/* ========================================
+   MAIN CONTAINER
+======================================== */
+
+.container {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.35);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* ========================================
+   HEADINGS
+======================================== */
+
+h1 {
+    text-align: center;
+
+    font-size: 38px;
+
+    color: #312e81;
+
+    margin-bottom: 8px;
+}
+
+
+h2 {
+    font-size: 26px;
+
+    color: #1e293b;
+
+    margin-bottom: 12px;
+}
+
+
+h3 {
+    font-size: 21px;
+
+    color: #312e81;
+}
+
+
+p {
+    line-height: 1.6;
+
+    color: #64748b;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   GAME HEADER
+======================================== */
+
+#gameTitle {
+    text-align: center;
+
+    font-size: 34px;
+
+    font-weight: 800;
+
+    color: #312e81;
+
+    margin-bottom: 10px;
+}
+
+
+#maxPoints,
+#roundNumber {
+    font-weight: 800;
+
+    color: #4f46e5;
+}
+
+
+/* ========================================
+   FORM GROUP
+======================================== */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    font-weight: 700;
+
+    color: #334155;
+
+    margin-bottom: 7px;
+}
+
+
+input {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 2px solid #e2e8f0;
+
+    border-radius: 10px;
+
+    outline: none;
+
+    font-size: 16px;
+
+    background: #ffffff;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+
+input:focus {
+    border-color: #6366f1;
+
+    box-shadow:
+        0 0 0 4px rgba(
+            99,
+            102,
+            241,
+            0.12
+        );
+}
+
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* ========================================
+   BUTTONS
+======================================== */
+
+button {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 12px 20px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    background: #4f46e5;
+
+    color: white;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+
+button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(
+            79,
+            70,
+            229,
+            0.25
+        );
+
+    background: #4338ca;
+}
+
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   NEW GAME BUTTON
+======================================== */
+
+button[onclick="newGame()"] {
+    width: 100%;
+
+    font-size: 18px;
+
+    padding: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+}
+
+
+button[onclick="newGame()"]:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #4338ca,
+            #6d28d9
+        );
+}
+
+
+/* ========================================
+   CONTINUE GAME
+======================================== */
+
+.continue-btn {
+    width: 100%;
+
+    padding: 15px;
+
+    font-size: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #059669,
+            #10b981
+        );
+}
+
+
+.continue-btn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #047857,
+            #059669
+        );
+}
+
+
+.continue-btn:disabled {
+    background: #94a3b8;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+}
+
+
+/* ========================================
+   SCORE SECTION
+======================================== */
+
+#scoreInputs {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(230px, 1fr)
+        );
+
+    gap: 15px;
+
+    margin: 20px 0;
+}
+
+
+.score-player {
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    padding: 17px;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.score-player:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
+}
+
+
+.player-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+
+.player-info strong {
+    font-size: 17px;
+
+    color: #1e293b;
+}
+
+
+.player-info span {
+    font-size: 14px;
+
+    font-weight: 700;
+
+    color: #6366f1;
+}
+
+
+.scoreInput {
+    width: 100%;
+}
+
+
+/* ========================================
+   REMAINING POINTS
+======================================== */
+
+.score-player small {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   LOCKED PLAYER
+======================================== */
+
+.locked {
+    color: #dc2626 !important;
+
+    font-size: 12px !important;
+}
+
+
+.locked-input {
+    background: #f1f5f9;
+
+    color: #94a3b8;
+
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   ADD ROUND
+======================================== */
+
+#addRoundBtn {
+    width: 100%;
+
+    margin-top: 5px;
+
+    padding: 15px;
+
+    font-size: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+}
+
+
+#addRoundBtn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #1d4ed8,
+            #4338ca
+        );
+}
+
+
+/* ========================================
+   ADD PLAYER
+======================================== */
+
+#addPlayerBtn {
+    margin-top: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #059669,
+            #10b981
+        );
+}
+
+
+#addPlayerBtn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #047857,
+            #059669
+        );
+}
+
+
+/* ========================================
+   ADD PLAYER AREA
+======================================== */
+
+.add-player-section {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #ecfdf5
+        );
+
+    border: 1px solid #bbf7d0;
+}
+
+
+.add-player-section h2 {
+    color: #047857;
+}
+
+
+/* ========================================
+   LEADERBOARD
+======================================== */
+
+#leaderboard {
+    margin-top: 20px;
+}
+
+
+.leaderboard-item {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 16px 18px;
+
+    margin-bottom: 10px;
+
+    border-radius: 13px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.leaderboard-item:hover {
+    transform: translateX(4px);
+
+    box-shadow:
+        0 6px 16px rgba(
+            15,
+            23,
+            42,
+            0.08
+        );
+}
+
+
+.leaderboard-item strong {
+    color: #334155;
+
+    font-size: 16px;
+}
+
+
+.leaderboard-item span {
+    font-size: 18px;
+
+    font-weight: 800;
+
+    color: #4f46e5;
+}
+
+
+/* ========================================
+   ROUND HISTORY
+======================================== */
+
+#roundHistory {
+    margin-top: 20px;
+}
+
+
+.round-box {
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    margin-bottom: 15px;
+
+    box-shadow:
+        0 5px 15px rgba(
+            15,
+            23,
+            42,
+            0.05
+        );
+}
+
+
+.round-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+.round-player {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 5px;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+
+.round-player:last-child {
+    border-bottom: none;
+}
+
+
+.round-player span {
+    color: #475569;
+}
+
+
+.round-player strong {
+    color: #312e81;
+}
+
+
+/* ========================================
+   EDIT BUTTON
+======================================== */
+
+.edit-btn {
+    padding: 7px 12px;
+
+    font-size: 13px;
+
+    background: #f59e0b;
+}
+
+
+.edit-btn:hover {
+    background: #d97706;
+}
+
+
+/* ========================================
+   LOCKED HISTORY
+======================================== */
+
+.locked-history {
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #94a3b8;
+}
+
+
+/* ========================================
+   EDIT PLAYER
+======================================== */
+
+.edit-player {
+    display: grid;
+
+    grid-template-columns:
+        1fr 120px;
+
+    gap: 15px;
+
+    align-items: center;
+
+    margin-bottom: 12px;
+}
+
+
+.edit-player label {
+    font-weight: 600;
+
+    color: #334155;
+}
+
+
+.edit-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+
+.cancel-btn {
+    background: #64748b;
+}
+
+
+.cancel-btn:hover {
+    background: #475569;
+}
+
+
+/* ========================================
+   WHATSAPP ORDER
+======================================== */
+
+.order-box {
+    margin-top: 35px;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f0fdf4,
+            #dcfce7
+        );
+
+    border: 1px solid #bbf7d0;
+}
+
+
+.order-box h2 {
+    color: #166534;
+}
+
+
+.order-box p {
+    margin-bottom: 18px;
+}
+
+
+.whatsapp-btn {
+    display: inline-block;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #16a34a,
+            #22c55e
+        );
+
+    color: white;
+
+    padding: 13px 22px;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(
+            22,
+            163,
+            74,
+            0.25
+        );
+}
+
+
+/* ========================================
+   BACK / SECONDARY BUTTON
+======================================== */
+
+.secondary-btn {
+    background: #64748b;
+}
+
+
+.secondary-btn:hover {
+    background: #475569;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px 10px;
+    }
+
+
+    .container {
+        padding: 22px 16px;
+
+        border-radius: 18px;
+    }
+
+
+    h1 {
+        font-size: 30px;
+    }
+
+
+    h2 {
+        font-size: 23px;
+    }
+
+
+    #gameTitle {
+        font-size: 28px;
+    }
+
+
+    #scoreInputs {
+        grid-template-columns: 1fr;
+    }
+
+
+    .edit-player {
+        grid-template-columns: 1fr;
+    }
+
+
+    .edit-actions {
+        flex-direction: column;
+    }
+
+
+    .edit-actions button {
+        width: 100%;
+    }
+
+}
+
+
+/* ========================================
+   ANIMATION
+======================================== */
+
+.container {
+    animation:
+        pageEnter 0.5s ease;
+}
+
+
+@keyframes pageEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(15px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
