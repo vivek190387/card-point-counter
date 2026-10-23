@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Card Point Counter</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- TITLE -->
+
+        <h1>🃏 Card Point Counter</h1>
+
+        <p>
+            Easily track points for your card games.
+        </p>
+
+
+        <!-- NEW GAME -->
+
+        <button
+            onclick="newGame()"
+        >
+            🎮 New Game
+        </button>
+
+
+        <br>
+        <br>
+
+
+        <!-- CONTINUE GAME -->
+
+        <button
+            id="continueBtn"
+            class="continue-btn"
+            onclick="continueGame()"
+        >
+            ▶ Continue Game
+        </button>
+
+
+        <br>
+        <br>
+
+
+        <!-- WHATSAPP ORDER -->
+
+        <div class="order-box">
+
+            <h2>💬 Need a Website?</h2>
+
+            <p>
+                Want a similar website for your
+                card game or business?
+            </p>
+
+
+            <a
+                class="whatsapp-btn"
+                href="https://wa.me/917382485793?text=Hi%2C%20I%20want%20to%20order%20a%20website."
+                target="_blank"
+            >
+                📱 Order on WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // ========================================
+        // NEW GAME
+        // ========================================
+
+        function newGame() {
+
+            /*
+             * Remove the previous game.
+             * This allows a completely new game
+             * to start.
+             */
+
+            localStorage.removeItem(
+                "cardGame"
+            );
+
+
+            // Open setup page
+            window.location.href =
+                "setup.html";
+        }
+
+
+        // ========================================
+        // CONTINUE GAME
+        // ========================================
+
+        function continueGame() {
+
+            const savedGame =
+                localStorage.getItem(
+                    "cardGame"
+                );
+
+
+            if (!savedGame) {
+
+                alert(
+                    "No saved game found. Please start a new game."
+                );
+
+                return;
+            }
+
+
+            // Open existing game
+            window.location.href =
+                "game.html";
+        }
+
+
+        // ========================================
+        // CHECK SAVED GAME
+        // ========================================
+
+        window.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                const savedGame =
+                    localStorage.getItem(
+                        "cardGame"
+                    );
+
+
+                const continueBtn =
+                    document.getElementById(
+                        "continueBtn"
+                    );
+
+
+                // If no saved game
+                if (!savedGame) {
+
+                    continueBtn.disabled =
+                        true;
+
+                    continueBtn.textContent =
+                        "▶ No Game to Continue";
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

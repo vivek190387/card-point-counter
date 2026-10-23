@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Card Game</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="game-container">
+
+
+        <!-- GAME HEADER -->
+
+        <div class="game-header">
+
+            <div>
+
+                <h1>
+                    🃏
+                    <span id="gameTitle">
+                        Card Game
+                    </span>
+                </h1>
+
+                <p>
+                    Maximum:
+                    <strong>
+                        <span id="maxPoints">
+                            0
+                        </span>
+                    </strong>
+                    points
+                </p>
+
+            </div>
+
+
+            <div class="round-display">
+
+                Round
+                <strong>
+                    <span id="roundNumber">
+                        1
+                    </span>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SCORE ENTRY -->
+
+        <div class="card">
+
+            <h2>Enter Round Score</h2>
+
+            <p>
+                Enter the points for this round.
+            </p>
+
+
+            <div id="scoreInputs"></div>
+
+
+            <button id="addRoundBtn">
+                ➕ Add Round
+            </button>
+
+        </div>
+
+
+
+        <!-- ADD PLAYER -->
+
+        <div class="card">
+
+            <h2>➕ Add Player</h2>
+
+            <p>
+                Add a new player during the game.
+            </p>
+
+
+            <div class="form-group">
+
+                <label>
+                    Player Name
+                </label>
+
+                <input
+                    type="text"
+                    id="newPlayerName"
+                    placeholder="Enter player name"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Initial Score
+                </label>
+
+                <input
+                    type="number"
+                    id="newPlayerScore"
+                    placeholder="Enter initial score"
+                    min="0"
+                >
+
+            </div>
+
+
+            <button id="addPlayerBtn">
+                Add Player
+            </button>
+
+        </div>
+
+
+
+        <!-- LEADERBOARD -->
+
+        <div class="card">
+
+            <h2>🏆 Leaderboard</h2>
+
+            <div id="leaderboard"></div>
+
+        </div>
+
+
+
+        <!-- ROUND HISTORY -->
+
+        <div class="card">
+
+            <div class="history-header">
+
+                <div>
+
+                    <h2>📜 Round History</h2>
+
+                    <p>
+                        Only the latest 2 rounds can be edited.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div id="roundHistory"></div>
+
+        </div>
+
+
+
+        <!-- END GAME -->
+
+        <div class="card">
+
+            <button
+                class="end-game-btn"
+                onclick="endGame()"
+            >
+                🏁 End Game
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <script src="js/game.js"></script>
+
+</body>
+
+</html>

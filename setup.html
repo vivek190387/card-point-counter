@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>New Game - Card Point Counter</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <h1>🃏 New Game</h1>
+
+        <p>
+            Set up your card game
+        </p>
+
+
+        <!-- GAME NAME -->
+
+        <div class="form-group">
+
+            <label for="gameName">
+                Game Name
+            </label>
+
+            <input
+                type="text"
+                id="gameName"
+                placeholder="Example: Friends Game"
+            >
+
+        </div>
+
+
+        <!-- MAXIMUM POINTS -->
+
+        <div class="form-group">
+
+            <label for="maxPoints">
+                Maximum Points
+            </label>
+
+            <input
+                type="number"
+                id="maxPoints"
+                placeholder="Example: 100"
+                min="1"
+            >
+
+        </div>
+
+
+        <!-- NUMBER OF PLAYERS -->
+
+        <div class="form-group">
+
+            <label for="playerCount">
+                Number of Players
+            </label>
+
+            <input
+                type="number"
+                id="playerCount"
+                value="4"
+                min="2"
+                max="50"
+                placeholder="Enter number of players"
+            >
+
+        </div>
+
+
+        <!-- PLAYERS -->
+
+        <div id="playersContainer"></div>
+
+
+        <!-- START GAME -->
+
+        <button id="startGameBtn">
+            ▶ Start Game
+        </button>
+
+
+        <br>
+        <br>
+
+
+        <!-- BACK -->
+
+        <button
+            class="secondary-btn"
+            onclick="goHome()"
+        >
+            ← Back
+        </button>
+
+    </div>
+
+
+    <script src="js/setup.js"></script>
+
+</body>
+
+</html>
